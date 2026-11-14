@@ -1,11 +1,18 @@
-# MuniMuniLeather
+# Editing the muni·muni site
 
-- React/Vite app for the Muni Muni Leather landing page.
-- Deploy GitHub Pages builds with `npm run deploy`; this builds `dist` and publishes it to the `gh-pages` branch.
-- Keep `vite.config.js` `base` set to `/` while the site is served from the custom domain `munimunileather.com`.
-- Prefer small, minimal landing-page changes unless the user asks for a fuller storefront.
-- Backend/admin scaffolding lives under `apps/`: `apps/cms` is Payload CMS and `apps/commerce` is Medusa.
-- Keep the root Vite app deployable independently until hosting moves away from GitHub Pages.
-- Use Node 20 LTS or Node 24 LTS for Payload/Medusa work; avoid assuming the host's newest Node is supported.
-- The Debian CMS and commerce Traefik routes are currently unused and must remain disabled with `traefik.enable=false`.
-- Keep dormant routes private-safe under `*.local.dissonant.info` using `traefik.scope=private`, the `traefik-private` network, HTTPS only, `private-dns`, and `authelia@docker` unless explicitly re-enabled.
+This is a small Astro site. Merging a pull request to `main` publishes it.
+
+## Where things live
+- All text, links and the photo list: `src/content/site.json`. Change words and links there, not in the page files.
+- Colors, fonts and spacing: `src/styles/tokens.css`. Change a token there; don't hard-code colors or fonts anywhere else.
+- Photos: put the image file in `public/photos/`, then add one entry to `photos` in `src/content/site.json`:
+  `{ "file": "wallet-brown.jpg", "alt": "Brown leather wallet, folded, on a wooden table" }`.
+  Every photo needs an `alt` that describes what is in it.
+- Instagram: set `links.instagram` to the full profile URL to show the link; leave it `""` to hide it.
+- Page layout: `src/pages/` and `src/components/` (one component per section). Only edit these to change the layout, not the words.
+
+## Rules
+- Keep changes small. Don't add frameworks, packages or new pages unless asked.
+- Don't copy text into components; read it from `site.json`.
+- Run `npm install` then `npm run build` and make sure it passes before opening a pull request.
+- Each pull request gets a build check and a preview link; check the preview before merging.

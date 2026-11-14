@@ -1,0 +1,17 @@
+/* Design tokens: every color, font and spacing value lives here. */
+:root {
+  --color-paper: #f4ede1;
+  --color-ink: #2b2420;
+  --color-muted: #6b5d52;
+  --color-accent: #8a4b2a;
+
+  --font-body: Georgia, "Times New Roman", serif;
+  --font-display: Georgia, "Times New Roman", serif;
+
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 2rem;
+  --space-xl: 4rem;
+
+  --measure: 38rem;
+}

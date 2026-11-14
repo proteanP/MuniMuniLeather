@@ -1,0 +1,44 @@
+---
+import '../styles/tokens.css';
+import site from '../content/site.json';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>{site.meta.title}</title>
+		<meta name="description" content={site.meta.description} />
+	</head>
+	<body>
+		<main>
+			<h1>{site.brand.name}</h1>
+			<p>{site.brand.tagline}</p>
+			<p><a href={site.links.etsy}>Shop on Etsy</a></p>
+			{site.links.instagram && <p><a href={site.links.instagram}>Instagram</a></p>}
+		</main>
+	</body>
+</html>
+
+<style>
+	body {
+		margin: 0;
+		background: var(--color-paper);
+		color: var(--color-ink);
+		font-family: var(--font-body);
+	}
+	main {
+		max-width: var(--measure);
+		margin: 0 auto;
+		padding: var(--space-xl) var(--space-m);
+	}
+	h1 {
+		font-family: var(--font-display);
+		font-weight: normal;
+	}
+	a {
+		color: var(--color-accent);
+	}
+</style>

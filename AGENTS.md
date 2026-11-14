@@ -14,5 +14,5 @@ This is a small Astro site. Merging a pull request to `main` publishes it.
 ## Rules
 - Keep changes small. Don't add frameworks, packages or new pages unless asked.
 - Don't copy text into components; read it from `site.json`.
-- Run `npm install` then `npm run build` and make sure it passes before opening a pull request.
+- Run `npm ci` then `npm run build` and make sure it passes before opening a pull request.
 - Each pull request gets a build check and a preview link; check the preview before merging.

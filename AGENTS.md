@@ -16,5 +16,6 @@ This is a small Astro site. Merging a pull request to `main` publishes it.
 ## Rules
 - Keep changes small. Don't add frameworks, packages or new pages unless asked.
 - Don't copy text into components; read it from `site.json`.
+- Link to files in `public/` and to pages with `url()` from `src/lib/url.ts` (e.g. `url("photos/x.jpg")`), never a bare `/path`, so previews served from a subfolder work.
 - Run `npm ci` then `npm run build` and make sure it passes before opening a pull request.
 - Each pull request gets a build check and a preview link; check the preview before merging.

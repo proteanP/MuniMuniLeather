@@ -1,10 +1,11 @@
 ---
 import site from '../content/site.json';
+import { url } from '../lib/url';
 const { brand } = site;
 ---
 
 <header>
-	<img src={`/brand/${brand.logo.file}`} alt="" width="96" height="96" />
+	<img src={url(`brand/${brand.logo.file}`)} alt="" width="96" height="96" />
 	<h1>{brand.name}</h1>
 	<p>{brand.tagline}</p>
 </header>

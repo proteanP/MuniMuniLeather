@@ -1,0 +1,81 @@
+---
+import site from '../content/site.json';
+import { url } from '../lib/url';
+const { current } = Astro.props;
+const { brand, nav, links } = site;
+---
+
+<header>
+	<a class="logo" href={url('')}>
+		<img src={url(`brand/${brand.logo.file}`)} alt={`${brand.name}, home`} width="200" height="200" />
+	</a>
+	<nav aria-label="Main">
+		{nav.map((item) => (
+			<a href={url(`${item.page}/`)} aria-current={current === item.page ? 'page' : undefined}>{item.label}</a>
+		))}
+		{links.instagram.url && <a href={links.instagram.url}>{links.instagram.label}</a>}
+		<a class="shop" href={links.etsy.url}>{links.etsy.label} <span aria-hidden="true">↗</span></a>
+	</nav>
+</header>
+
+<style>
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: var(--space-s);
+		max-width: var(--wide);
+		width: 100%;
+		margin: 0 auto;
+		padding: var(--space-xs) var(--gutter);
+		box-sizing: border-box;
+	}
+	img {
+		display: block;
+		width: 6.5rem;
+		height: auto;
+		margin-left: -0.6rem;
+		mix-blend-mode: multiply;
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		gap: var(--space-xs) var(--space-m);
+	}
+	nav a {
+		color: var(--color-ink);
+		text-decoration: none;
+		font-weight: 500;
+		font-size: 0.9375rem;
+	}
+	nav a:hover,
+	nav a[aria-current='page'] {
+		color: var(--color-accent);
+	}
+	nav a[aria-current='page'] {
+		text-decoration: underline;
+		text-underline-offset: 6px;
+	}
+	nav .shop {
+		padding: 0.5rem 1rem;
+		background: var(--color-olive);
+		color: var(--color-on-olive);
+		border-radius: 999px;
+	}
+	nav .shop:hover,
+	nav .shop:focus-visible {
+		background: var(--color-ink);
+		color: var(--color-on-olive);
+	}
+	@media (max-width: 40rem) {
+		header {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		nav {
+			justify-content: flex-start;
+		}
+	}
+</style>

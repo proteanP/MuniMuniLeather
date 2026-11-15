@@ -1,9 +1,38 @@
 ---
 import site from '../content/site.json';
+import { url } from '../lib/url';
+const photo = site.photos[2];
 ---
 
-{site.about && (
-	<section>
-		<p>{site.about}</p>
-	</section>
-)}
+<div class="about">
+	{photo && <img src={url(`photos/${photo.file}`)} alt={photo.alt} width="1000" height="1000" />}
+	<p>{site.about}</p>
+</div>
+
+<style>
+	.about {
+		display: grid;
+		grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+		gap: var(--space-l);
+		align-items: start;
+	}
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		border-radius: var(--radius);
+	}
+	p {
+		margin: 0;
+		font-family: var(--font-display);
+		font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+		line-height: 1.25;
+	}
+	@media (max-width: 52rem) {
+		.about {
+			grid-template-columns: minmax(0, 1fr);
+		}
+	}
+</style>

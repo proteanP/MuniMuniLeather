@@ -1,0 +1,13 @@
+---
+import Page from '../../layouts/Page.astro';
+import Contact from '../../components/Contact.astro';
+import site from '../../content/site.json';
+---
+
+<Page title={site.contact.heading} current="contact">
+	<div class="page-head">
+		<h1>{site.contact.heading}</h1>
+		<p>{site.contact.intro}</p>
+	</div>
+	<Contact />
+</Page>

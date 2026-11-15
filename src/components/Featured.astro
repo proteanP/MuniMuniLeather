@@ -1,0 +1,72 @@
+---
+import site from '../content/site.json';
+import { url } from '../lib/url';
+const picks = site.photos.slice(1, 4);
+---
+
+<section aria-labelledby="featured-heading">
+	<div class="head">
+		<h2 id="featured-heading">{site.home.featuredHeading}</h2>
+		<a href={url('work/')}>{site.home.featuredLink} <span aria-hidden="true">→</span></a>
+	</div>
+	<ul>
+		{picks.map((photo) => (
+			<li>
+				<img src={url(`photos/${photo.file}`)} alt={photo.alt} width="1000" height="1000" loading="lazy" />
+				<p>{photo.name}</p>
+			</li>
+		))}
+	</ul>
+</section>
+
+<style>
+	.head {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: var(--space-s);
+		padding-bottom: var(--space-s);
+		margin-bottom: var(--space-m);
+		border-bottom: 1px solid var(--color-ink);
+	}
+	h2 {
+		font-size: clamp(2rem, 4vw, 3rem);
+	}
+	.head a {
+		font-weight: 500;
+		white-space: nowrap;
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: 5fr 3fr 4fr;
+		gap: var(--space-m);
+		align-items: end;
+	}
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		border-radius: var(--radius);
+	}
+	li:nth-child(1) img { aspect-ratio: 5 / 4; }
+	li:nth-child(2) img { aspect-ratio: 3 / 4; }
+	li:nth-child(3) img { aspect-ratio: 1; }
+	p {
+		margin: var(--space-xs) 0 0;
+		font-size: 0.9375rem;
+		color: var(--color-muted);
+	}
+	@media (max-width: 52rem) {
+		ul {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		}
+		li:first-child {
+			grid-column: 1 / -1;
+		}
+		li img { aspect-ratio: 1; }
+	}
+</style>

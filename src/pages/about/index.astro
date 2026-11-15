@@ -1,0 +1,13 @@
+---
+import Page from '../../layouts/Page.astro';
+import About from '../../components/About.astro';
+import site from '../../content/site.json';
+---
+
+<Page title={site.aboutPage.heading} current="about">
+	<div class="page-head">
+		<h1>{site.aboutPage.heading}</h1>
+		<p>{site.brand.tagline}</p>
+	</div>
+	<About />
+</Page>

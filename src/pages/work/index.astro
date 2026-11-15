@@ -1,0 +1,13 @@
+---
+import Page from '../../layouts/Page.astro';
+import Gallery from '../../components/Gallery.astro';
+import site from '../../content/site.json';
+---
+
+<Page title={site.work.heading} current="work">
+	<div class="page-head">
+		<h1>{site.work.heading}</h1>
+		<p>{site.work.intro}</p>
+	</div>
+	<Gallery />
+</Page>

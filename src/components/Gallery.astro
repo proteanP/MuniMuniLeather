@@ -3,32 +3,62 @@ import site from '../content/site.json';
 import { url } from '../lib/url';
 ---
 
-{site.photos.length > 0 && (
-	<section>
-		<ul>
-			{site.photos.map((photo) => (
-				<li>
-					<img src={url(`photos/${photo.file}`)} alt={photo.alt} width="1000" height="1000" loading="lazy" />
-				</li>
-			))}
-		</ul>
-	</section>
-)}
+<ul>
+	{site.photos.map((photo) => (
+		<li>
+			<img src={url(`photos/${photo.file}`)} alt={photo.alt} width="1000" height="1000" loading="lazy" />
+			<p>{photo.name}</p>
+		</li>
+	))}
+</ul>
 
 <style>
+	/* Rows alternate: one wide piece with two beside it, then three even */
 	ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-		gap: var(--space-m);
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+		gap: var(--space-l) var(--space-m);
 	}
+	li { grid-column: span 2; }
+	li:nth-child(5n) { grid-column: span 4; }
+	li:nth-child(5n + 1) { grid-column: span 3; grid-row: span 2; }
+	li:nth-child(5n + 2),
+	li:nth-child(5n + 3) { grid-column: span 3; }
 	img {
 		display: block;
 		width: 100%;
 		height: auto;
 		aspect-ratio: 1;
 		object-fit: cover;
+		border-radius: var(--radius);
+	}
+	li:nth-child(5n + 2) img,
+	li:nth-child(5n + 3) img { aspect-ratio: 16 / 10; }
+	li:nth-child(5n + 4) img { aspect-ratio: 4 / 5; }
+	li:nth-child(5n) img { aspect-ratio: 8 / 5; }
+	li:nth-child(5n + 1) img { aspect-ratio: auto; height: calc(100% - 2.5rem); }
+	p {
+		margin: var(--space-xs) 0 0;
+		font-size: 0.9375rem;
+		color: var(--color-muted);
+	}
+	@media (max-width: 52rem) {
+		ul {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+			gap: var(--space-m) var(--space-s);
+		}
+		li,
+		li:nth-child(n) {
+			grid-column: span 1;
+			grid-row: auto;
+		}
+		li:nth-child(5n + 1),
+		li:nth-child(5n) {
+			grid-column: 1 / -1;
+		}
+		li:nth-child(n) img { aspect-ratio: 1; height: auto; }
 	}
 </style>

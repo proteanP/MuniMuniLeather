@@ -1,0 +1,70 @@
+---
+import site from '../content/site.json';
+const { shop, links, brand, footer } = site;
+---
+
+<footer>
+	<div class="inner">
+		<p class="heading">{shop.heading}</p>
+		<a class="button" href={links.etsy.url}>{shop.button} <span aria-hidden="true">↗</span></a>
+		<p class="small"><span>{brand.name}</span><span>{footer}</span></p>
+	</div>
+</footer>
+
+<style>
+	footer {
+		margin-top: var(--space-xl);
+		background: var(--color-olive);
+		color: var(--color-on-olive);
+	}
+	.inner {
+		max-width: var(--wide);
+		margin: 0 auto;
+		padding: var(--space-xl) var(--gutter) var(--space-m);
+		box-sizing: border-box;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		align-items: end;
+		gap: var(--space-l);
+	}
+	.heading {
+		margin: 0;
+		font-family: var(--font-display);
+		font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+		line-height: 1;
+		max-width: 14ch;
+	}
+	.button {
+		padding: 0.875rem 1.5rem;
+		border: 1px solid var(--color-on-olive);
+		border-radius: 999px;
+		color: var(--color-on-olive);
+		text-decoration: none;
+		font-weight: 500;
+	}
+	.button:hover {
+		background: var(--color-on-olive);
+		color: var(--color-olive);
+	}
+	.button:focus-visible {
+		outline-color: var(--color-on-olive);
+	}
+	.small {
+		grid-column: 1 / -1;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: var(--space-xs);
+		margin: var(--space-l) 0 0;
+		padding-top: var(--space-s);
+		border-top: 1px solid rgb(243 236 223 / 0.35);
+		font-size: 0.875rem;
+	}
+	@media (max-width: 40rem) {
+		.inner {
+			grid-template-columns: minmax(0, 1fr);
+			justify-items: start;
+			padding-top: var(--space-l);
+		}
+	}
+</style>

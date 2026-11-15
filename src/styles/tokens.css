@@ -1,17 +1,31 @@
 /* Design tokens: every color, font and spacing value lives here. */
+@import '@fontsource/gloock/latin-400.css';
+@import '@fontsource/hanken-grotesk/latin-400.css';
+@import '@fontsource/hanken-grotesk/latin-500.css';
+@import '@fontsource/hanken-grotesk/latin-400-italic.css';
+
 :root {
-  --color-paper: #f4ede1;
-  --color-ink: #2b2420;
-  --color-muted: #6b5d52;
-  --color-accent: #8a4b2a;
+  --color-paper: #f3ecdf;
+  --color-paper-deep: #e7dcc8;
+  --color-ink: #23211b;
+  --color-muted: #59544a;
+  /* Olive leather: the dominant color, in big blocks */
+  --color-olive: #3c4a2d;
+  --color-on-olive: #f3ecdf;
+  /* Brick: small sharp accents only */
+  --color-accent: #a13f1c;
 
-  --font-body: Georgia, "Times New Roman", serif;
-  --font-display: Georgia, "Times New Roman", serif;
+  --font-display: "Gloock", "Georgia", serif;
+  --font-body: "Hanken Grotesk", "Helvetica Neue", sans-serif;
 
-  --space-s: 0.5rem;
-  --space-m: 1rem;
-  --space-l: 2rem;
-  --space-xl: 4rem;
+  --space-xs: 0.5rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 3rem;
+  --space-xl: 6rem;
 
-  --measure: 38rem;
+  --gutter: clamp(1rem, 5vw, 4.5rem);
+  --wide: 84rem;
+  --measure: 36rem;
+  --radius: 3px;
 }

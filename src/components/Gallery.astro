@@ -1,0 +1,33 @@
+---
+import site from '../content/site.json';
+---
+
+{site.photos.length > 0 && (
+	<section>
+		<ul>
+			{site.photos.map((photo) => (
+				<li>
+					<img src={`/photos/${photo.file}`} alt={photo.alt} width="1000" height="1000" loading="lazy" />
+				</li>
+			))}
+		</ul>
+	</section>
+)}
+
+<style>
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+		gap: var(--space-m);
+	}
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1;
+		object-fit: cover;
+	}
+</style>

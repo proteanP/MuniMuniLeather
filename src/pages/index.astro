@@ -1,6 +1,10 @@
 ---
 import '../styles/tokens.css';
 import site from '../content/site.json';
+import Header from '../components/Header.astro';
+import Links from '../components/Links.astro';
+import About from '../components/About.astro';
+import Gallery from '../components/Gallery.astro';
 ---
 
 <html lang="en">
@@ -14,15 +18,15 @@ import site from '../content/site.json';
 	</head>
 	<body>
 		<main>
-			<h1>{site.brand.name}</h1>
-			<p>{site.brand.tagline}</p>
-			<p><a href={site.links.etsy}>Shop on Etsy</a></p>
-			{site.links.instagram && <p><a href={site.links.instagram}>Instagram</a></p>}
+			<Header />
+			<Links />
+			<About />
+			<Gallery />
 		</main>
 	</body>
 </html>
 
-<style>
+<style is:global>
 	body {
 		margin: 0;
 		background: var(--color-paper);
@@ -33,10 +37,6 @@ import site from '../content/site.json';
 		max-width: var(--measure);
 		margin: 0 auto;
 		padding: var(--space-xl) var(--space-m);
-	}
-	h1 {
-		font-family: var(--font-display);
-		font-weight: normal;
 	}
 	a {
 		color: var(--color-accent);

@@ -1,6 +1,7 @@
 ---
 import '../styles/tokens.css';
 import site from '../content/site.json';
+import { url } from '../lib/url';
 import Header from '../components/Header.astro';
 import Links from '../components/Links.astro';
 import About from '../components/About.astro';
@@ -11,8 +12,8 @@ import Gallery from '../components/Gallery.astro';
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={url("favicon.svg")} />
+		<link rel="icon" href={url("favicon.ico")} />
 		<title>{site.meta.title}</title>
 		<meta name="description" content={site.meta.description} />
 	</head>

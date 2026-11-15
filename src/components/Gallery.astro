@@ -1,5 +1,6 @@
 ---
 import site from '../content/site.json';
+import { url } from '../lib/url';
 ---
 
 {site.photos.length > 0 && (
@@ -7,7 +8,7 @@ import site from '../content/site.json';
 		<ul>
 			{site.photos.map((photo) => (
 				<li>
-					<img src={`/photos/${photo.file}`} alt={photo.alt} width="1000" height="1000" loading="lazy" />
+					<img src={url(`photos/${photo.file}`)} alt={photo.alt} width="1000" height="1000" loading="lazy" />
 				</li>
 			))}
 		</ul>

@@ -29,6 +29,7 @@ const { title, current } = Astro.props;
 		background: var(--color-paper);
 	}
 	body {
+		background-image: var(--paper-grain);
 		margin: 0;
 		color: var(--color-ink);
 		font-family: var(--font-body);
@@ -73,12 +74,12 @@ const { title, current } = Astro.props;
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) minmax(0, var(--measure));
 		gap: var(--space-l);
-		align-items: end;
+		align-items: baseline;
 		border-bottom: 1px solid var(--color-ink);
 		margin-bottom: var(--space-l);
 	}
 	.page-head h1 {
-		font-size: clamp(3rem, 9vw, 8.5rem);
+		font-size: clamp(3rem, 8vw, 7rem);
 		line-height: 0.9;
 	}
 	.page-head p {

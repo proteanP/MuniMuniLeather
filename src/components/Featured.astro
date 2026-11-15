@@ -67,6 +67,7 @@ const picks = site.photos.slice(1, 4);
 		li:first-child {
 			grid-column: 1 / -1;
 		}
-		li img { aspect-ratio: 1; }
+		li:nth-child(n) img { aspect-ratio: 4 / 5; }
+		li:first-child img { aspect-ratio: 5 / 4; }
 	}
 </style>

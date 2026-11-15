@@ -24,7 +24,7 @@ import { url } from '../lib/url';
 	}
 	li { grid-column: span 2; }
 	li:nth-child(5n) { grid-column: span 4; }
-	li:nth-child(5n + 1) { grid-column: span 3; grid-row: span 2; }
+	li:nth-child(5n + 1) { grid-column: span 3; grid-row: span 2; display: flex; flex-direction: column; }
 	li:nth-child(5n + 2),
 	li:nth-child(5n + 3) { grid-column: span 3; }
 	img {
@@ -37,9 +37,10 @@ import { url } from '../lib/url';
 	}
 	li:nth-child(5n + 2) img,
 	li:nth-child(5n + 3) img { aspect-ratio: 16 / 10; }
-	li:nth-child(5n + 4) img { aspect-ratio: 4 / 5; }
-	li:nth-child(5n) img { aspect-ratio: 8 / 5; }
-	li:nth-child(5n + 1) img { aspect-ratio: auto; height: calc(100% - 2.5rem); }
+	/* The pair under the wide row shares one height so the captions line up */
+	li:nth-child(5n + 4) img,
+	li:nth-child(5n) img { aspect-ratio: auto; height: clamp(14rem, 26vw, 24rem); }
+	li:nth-child(5n + 1) img { flex: 1; min-height: 0; aspect-ratio: auto; height: auto; }
 	p {
 		margin: var(--space-xs) 0 0;
 		font-size: 0.9375rem;
@@ -55,10 +56,10 @@ import { url } from '../lib/url';
 			grid-column: span 1;
 			grid-row: auto;
 		}
-		li:nth-child(5n + 1),
-		li:nth-child(5n) {
+		li:nth-child(5n + 1) {
 			grid-column: 1 / -1;
+			display: block;
 		}
-		li:nth-child(n) img { aspect-ratio: 1; height: auto; }
+		li:nth-child(n) img { aspect-ratio: 1; height: auto; flex: none; }
 	}
 </style>

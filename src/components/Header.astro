@@ -4,14 +4,14 @@ const { brand } = site;
 ---
 
 <header>
-	<img src={`/${brand.logo.file}`} alt={brand.logo.alt} width="96" height="96" />
+	<img src={`/brand/${brand.logo.file}`} alt="" width="96" height="96" />
 	<h1>{brand.name}</h1>
 	<p>{brand.tagline}</p>
 </header>
 
 <style>
 	img {
-		border-radius: 50%;
+		mix-blend-mode: multiply;
 	}
 	h1 {
 		font-family: var(--font-display);

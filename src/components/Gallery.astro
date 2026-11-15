@@ -7,7 +7,7 @@ import site from '../content/site.json';
 		<ul>
 			{site.photos.map((photo) => (
 				<li>
-					<img src={`/photos/${photo.file}`} alt={photo.alt} loading="lazy" />
+					<img src={`/photos/${photo.file}`} alt={photo.alt} width="1000" height="1000" loading="lazy" />
 				</li>
 			))}
 		</ul>

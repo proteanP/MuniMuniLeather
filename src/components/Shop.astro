@@ -1,0 +1,59 @@
+---
+import site from '../content/site.json';
+const { shop, links } = site;
+---
+
+<section class="shop">
+	<div class="tag">
+		<p class="heading">{shop.heading}</p>
+		<a class="label button" href={links.etsy.url}>{shop.button} <span aria-hidden="true">↗</span></a>
+	</div>
+</section>
+
+<style>
+	.shop {
+		padding-top: var(--space-xl);
+	}
+	/* A leather tag: cognac block with a stitched edge */
+	.tag {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: var(--space-m);
+		padding: var(--space-l) clamp(var(--space-m), 5vw, var(--space-xl));
+		background: var(--color-accent);
+		color: var(--color-paper-light);
+		border-radius: 4px;
+	}
+	.tag::before {
+		content: "";
+		position: absolute;
+		inset: 10px;
+		border: var(--stitch);
+		border-radius: 2px;
+		pointer-events: none;
+	}
+	.heading {
+		margin: 0;
+		font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+		line-height: 1.1;
+		max-width: 18ch;
+	}
+	.button {
+		position: relative;
+		padding: 0.875rem 1.5rem;
+		background: var(--color-paper-light);
+		color: var(--color-ink);
+		text-decoration: none;
+		border-radius: 999px;
+	}
+	.button:hover {
+		background: var(--color-ink);
+		color: var(--color-paper-light);
+	}
+	.button:focus-visible {
+		outline-color: var(--color-paper-light);
+	}
+</style>

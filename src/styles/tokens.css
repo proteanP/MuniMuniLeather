@@ -1,17 +1,29 @@
 /* Design tokens: every color, font and spacing value lives here. */
+@import '@fontsource/young-serif/latin-400.css';
+@import '@fontsource/dm-mono/latin-400.css';
+@import '@fontsource/dm-mono/latin-500.css';
+
 :root {
-  --color-paper: #f4ede1;
-  --color-ink: #2b2420;
-  --color-muted: #6b5d52;
-  --color-accent: #8a4b2a;
+  /* Kraft paper and ink */
+  --color-paper: #ede2cc;
+  --color-paper-light: #f5ecdb;
+  --color-ink: #2b2119;
+  --color-muted: #5e4c3c;
+  /* Cognac: the dominant leather color, used in big blocks */
+  --color-accent: #8c4519;
+  /* Waxed thread: stitches on the cognac blocks */
+  --color-thread: #f3e3c4;
 
-  --font-body: Georgia, "Times New Roman", serif;
-  --font-display: Georgia, "Times New Roman", serif;
+  --font-display: "Young Serif", "Georgia", serif;
+  --font-label: "DM Mono", "Courier New", monospace;
 
-  --space-s: 0.5rem;
-  --space-m: 1rem;
-  --space-l: 2rem;
-  --space-xl: 4rem;
+  --space-xs: 0.375rem;
+  --space-s: 0.75rem;
+  --space-m: 1.5rem;
+  --space-l: 3rem;
+  --space-xl: 6rem;
 
-  --measure: 38rem;
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+  --measure: 34rem;
+  --stitch: 2px dashed var(--color-thread);
 }

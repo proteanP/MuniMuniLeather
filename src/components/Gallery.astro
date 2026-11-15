@@ -1,14 +1,21 @@
 ---
 import site from '../content/site.json';
 import { url } from '../lib/url';
+const { gallery, photos } = site;
 ---
 
-{site.photos.length > 0 && (
-	<section>
+{photos.length > 0 && (
+	<section class="gallery" aria-labelledby="gallery-heading">
+		<div class="head">
+			<h2 id="gallery-heading">{gallery.heading}</h2>
+			<p class="label count">{String(photos.length).padStart(2, '0')} pieces</p>
+			<p class="note">{gallery.note}</p>
+		</div>
 		<ul>
-			{site.photos.map((photo) => (
+			{photos.map((photo, i) => (
 				<li>
 					<img src={url(`photos/${photo.file}`)} alt={photo.alt} width="1000" height="1000" loading="lazy" />
+					<p class="label"><span class="num">No. {String(i + 1).padStart(2, '0')}</span> {photo.name}</p>
 				</li>
 			))}
 		</ul>
@@ -16,19 +23,85 @@ import { url } from '../lib/url';
 )}
 
 <style>
+	.gallery {
+		padding-top: var(--space-l);
+	}
+	.head {
+		display: grid;
+		grid-template-columns: auto 1fr minmax(0, 22rem);
+		align-items: baseline;
+		gap: var(--space-m);
+		margin-bottom: var(--space-l);
+	}
+	h2 {
+		margin: 0;
+		font-weight: 400;
+		font-size: clamp(2rem, 4vw, 3.25rem);
+		line-height: 1;
+	}
+	.count {
+		margin: 0;
+		color: var(--color-accent);
+	}
+	.note {
+		margin: 0;
+		color: var(--color-muted);
+		font-size: 0.9375rem;
+	}
+	/* An uneven bench: pieces take different widths and sit at different heights */
 	ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-		gap: var(--space-m);
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+		column-gap: var(--space-m);
+		row-gap: var(--space-l);
+		align-items: start;
 	}
+	li { grid-column: span 4; }
+	li:nth-child(6n + 1) { grid-column: span 5; }
+	li:nth-child(6n + 2) { grid-column: span 3; margin-top: var(--space-xl); }
+	li:nth-child(6n + 3) { grid-column: span 4; margin-top: var(--space-l); }
+	li:nth-child(6n + 4) { grid-column: 2 / span 3; }
+	li:nth-child(6n + 5) { grid-column: span 4; margin-top: calc(var(--space-xl) * -0.5); }
+	li:nth-child(6n + 6) { grid-column: span 4; margin-top: var(--space-m); }
 	img {
 		display: block;
 		width: 100%;
 		height: auto;
-		aspect-ratio: 1;
+		aspect-ratio: 4 / 5;
 		object-fit: cover;
+	}
+	li:nth-child(3n + 1) img { aspect-ratio: 1; }
+	li p {
+		margin: var(--space-xs) 0 0;
+		color: var(--color-ink);
+	}
+	.num {
+		color: var(--color-accent);
+		margin-right: 0.5em;
+	}
+	@media (max-width: 52rem) {
+		.head {
+			grid-template-columns: auto 1fr;
+		}
+		.note {
+			grid-column: 1 / -1;
+		}
+		ul {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			column-gap: var(--space-s);
+			row-gap: var(--space-m);
+		}
+		li,
+		li:nth-child(n) {
+			grid-column: span 1;
+			margin-top: 0;
+		}
+		li:nth-child(even) {
+			margin-top: var(--space-l);
+		}
+		li:nth-child(3n + 1) img { aspect-ratio: 4 / 5; }
 	}
 </style>

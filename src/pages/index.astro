@@ -44,6 +44,8 @@ import Contact from '../components/Contact.astro';
 		background-image:
 			var(--paper-grain),
 			repeating-linear-gradient(to bottom, transparent 0 calc(var(--line) - 1px), var(--color-rule) calc(var(--line) - 1px) var(--line));
+		/* Shift the rules so text baselines sit on them */
+		background-position: 0 0, 0 calc(var(--line) * -0.3);
 		min-height: 100vh;
 		position: relative;
 	}
@@ -69,12 +71,12 @@ import Contact from '../components/Contact.astro';
 		max-width: 76rem;
 	}
 	.card {
-		min-height: calc(100vh - var(--space-l));
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) minmax(0, 20rem);
 		grid-template-areas: "header about" "links about";
 		column-gap: var(--space-xl);
 		align-content: start;
+		min-height: calc(100vh - var(--space-xl));
 	}
 	a {
 		color: var(--color-accent);

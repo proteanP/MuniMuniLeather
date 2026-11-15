@@ -30,9 +30,11 @@ const numerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi'];
 	}
 	a {
 		display: grid;
-		grid-template-columns: 3rem 1fr auto;
+		grid-template-columns: 2.5rem 1fr auto;
+		align-content: center;
 		align-items: baseline;
-		padding: var(--space-s) 0;
+		height: calc(var(--line) * 3);
+		box-sizing: border-box;
 		border-bottom: 1px solid var(--color-ink);
 		color: var(--color-ink);
 		text-decoration: none;
@@ -50,7 +52,7 @@ const numerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi'];
 	}
 	.arrow {
 		font-family: var(--font-body);
-		font-size: 0.6em;
+		font-size: 0.75em;
 		transition: transform 0.2s ease;
 	}
 	a:hover .label,

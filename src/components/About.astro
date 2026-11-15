@@ -11,8 +11,9 @@ import site from '../content/site.json';
 <style>
 	aside {
 		grid-area: about;
-		align-self: end;
-		padding-bottom: var(--space-s);
+		align-self: start;
+		/* Starts level with the headline: the logo is five lines tall */
+		padding-top: calc(10rem + var(--space-m));
 	}
 	p {
 		margin: 0;
@@ -21,6 +22,7 @@ import site from '../content/site.json';
 	}
 	@media (max-width: 52rem) {
 		aside {
+			padding-top: 0;
 			margin-top: var(--space-l);
 			max-width: var(--measure);
 		}

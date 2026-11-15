@@ -24,7 +24,7 @@ import Gallery from '../components/Gallery.astro';
 				<About />
 				<Links />
 			</div>
-			<Gallery />
+			<div class="gallery"><Gallery /></div>
 		</main>
 	</body>
 </html>
@@ -42,6 +42,15 @@ import Gallery from '../components/Gallery.astro';
 	main {
 		padding: var(--space-l) var(--gutter) var(--gutter);
 	}
+	/* The sentence and the links: side by side, stacked on phones and beside the logo on wide screens */
+	.intro {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: var(--space-l);
+		margin: var(--space-l) 0 var(--space-xl);
+	}
 	/* Wide screens: logo on the left, sentence and links beside it, photos below */
 	@media (min-width: 64rem) {
 		main {
@@ -53,32 +62,25 @@ import Gallery from '../components/Gallery.astro';
 			max-width: 96rem;
 			margin-inline: auto;
 		}
-		main > .intro {
-			grid-template-columns: minmax(0, 1fr);
-			grid-template-areas: "about" "links";
+		.intro {
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-end;
 			gap: var(--space-m);
 			align-self: end;
 			margin: 0;
 		}
-		main > ul {
+		.gallery {
 			grid-column: 1 / -1;
 		}
-	}
-	.intro {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto;
-		grid-template-areas: "about links";
-		align-items: end;
-		gap: var(--space-l);
-		margin: var(--space-l) 0 var(--space-xl);
 	}
 	@media (max-width: 40rem) {
 		main {
 			padding-top: var(--space-m);
 		}
 		.intro {
-			grid-template-columns: minmax(0, 1fr);
-			grid-template-areas: "about" "links";
+			flex-direction: column;
+			align-items: flex-start;
 			gap: var(--space-m);
 			margin: var(--space-m) 0 var(--space-l);
 		}

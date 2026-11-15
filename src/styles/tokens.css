@@ -6,12 +6,11 @@
   /* Paper and ink */
   --color-paper: #efe6d6;
   --color-ink: #1f1915;
-  /* Cognac: link hover, focus and the arrow marks */
+  /* Cognac: link hover and focus */
   --color-accent: #8a4318;
 
   /* One face, used at very different sizes */
   --font-body: "Libre Caslon Text", "Georgia", serif;
-  --font-display: var(--font-body);
 
   --space-s: 0.75rem;
   --space-m: 1.5rem;

@@ -19,8 +19,16 @@ import { url } from '../lib/url';
 		margin: 0;
 		padding: 0;
 		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: var(--space-s);
+	}
+	/* The first photo is the hero: it fills two rows */
+	li:first-child {
+		grid-row: span 2;
+	}
+	li:first-child img {
+		height: 100%;
+		aspect-ratio: auto;
 	}
 	img {
 		display: block;
@@ -33,6 +41,12 @@ import { url } from '../lib/url';
 		ul {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 			gap: 0.5rem;
+		}
+		li:first-child {
+			grid-row: auto;
+		}
+		li:first-child img {
+			aspect-ratio: 4 / 5;
 		}
 	}
 </style>

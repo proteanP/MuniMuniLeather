@@ -42,6 +42,28 @@ import Gallery from '../components/Gallery.astro';
 	main {
 		padding: var(--space-l) var(--gutter) var(--gutter);
 	}
+	/* Wide screens: logo on the left, sentence and links beside it, photos below */
+	@media (min-width: 64rem) {
+		main {
+			display: grid;
+			grid-template-columns: minmax(0, 55rem) minmax(0, 24rem);
+			justify-content: space-between;
+			column-gap: var(--space-l);
+			row-gap: var(--space-l);
+			max-width: 96rem;
+			margin-inline: auto;
+		}
+		main > .intro {
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-areas: "about" "links";
+			gap: var(--space-m);
+			align-self: end;
+			margin: 0;
+		}
+		main > ul {
+			grid-column: 1 / -1;
+		}
+	}
 	.intro {
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) auto;

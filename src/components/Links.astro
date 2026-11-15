@@ -1,9 +1,69 @@
 ---
 import site from '../content/site.json';
-const { links } = site;
+const shown = Object.values(site.links).filter((link) => link.url);
+const numerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi'];
 ---
 
-<nav>
-	<p><a href={links.etsy.url}>{links.etsy.label}</a></p>
-	{links.instagram.url && <p><a href={links.instagram.url}>{links.instagram.label}</a></p>}
+<nav aria-label="Links">
+	<ol>
+		{shown.map((link, i) => (
+			<li>
+				<a href={link.url}>
+					<span class="num" aria-hidden="true">{numerals[i]}.</span>
+					<span class="label">{link.label}</span>
+					<span class="arrow" aria-hidden="true">→</span>
+				</a>
+			</li>
+		))}
+	</ol>
 </nav>
+
+<style>
+	nav {
+		grid-area: links;
+	}
+	ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		max-width: 36rem;
+	}
+	a {
+		display: grid;
+		grid-template-columns: 3rem 1fr auto;
+		align-items: baseline;
+		padding: var(--space-s) 0;
+		border-bottom: 1px solid var(--color-ink);
+		color: var(--color-ink);
+		text-decoration: none;
+		font-family: var(--font-display);
+		font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+		line-height: 1.2;
+	}
+	li:first-child a {
+		border-top: 1px solid var(--color-ink);
+	}
+	.num {
+		font-style: italic;
+		font-size: 0.6em;
+		color: var(--color-accent);
+	}
+	.arrow {
+		font-family: var(--font-body);
+		font-size: 0.6em;
+		transition: transform 0.2s ease;
+	}
+	a:hover .label,
+	a:focus-visible .label {
+		color: var(--color-accent);
+	}
+	a:hover .arrow,
+	a:focus-visible .arrow {
+		transform: translateX(0.3em);
+		color: var(--color-accent);
+	}
+	a:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 4px;
+	}
+</style>

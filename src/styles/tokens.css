@@ -1,17 +1,33 @@
 /* Design tokens: every color, font and spacing value lives here. */
+@import '@fontsource/cormorant-garamond/latin-500.css';
+@import '@fontsource/cormorant-garamond/latin-500-italic.css';
+@import '@fontsource/spectral/latin-300.css';
+@import '@fontsource/spectral/latin-300-italic.css';
+@import '@fontsource/spectral/latin-500.css';
+
 :root {
-  --color-paper: #f4ede1;
-  --color-ink: #2b2420;
-  --color-muted: #6b5d52;
-  --color-accent: #8a4b2a;
+  /* Paper and ink */
+  --color-paper: #f2e9da;
+  --color-ink: #241b16;
+  --color-muted: #5c4c41;
+  /* Oxblood: the notebook's margin line, numerals and the send button */
+  --color-accent: #7b2d1e;
+  --color-on-accent: #f7efe3;
+  /* Faint ruled lines */
+  --color-rule: rgb(36 27 22 / 0.09);
 
-  --font-body: Georgia, "Times New Roman", serif;
-  --font-display: Georgia, "Times New Roman", serif;
+  --font-display: "Cormorant Garamond", "Garamond", serif;
+  --font-body: "Spectral", "Georgia", serif;
 
-  --space-s: 0.5rem;
-  --space-m: 1rem;
-  --space-l: 2rem;
-  --space-xl: 4rem;
+  /* One line of the ruled page; spacing is in whole or half lines */
+  --line: 2rem;
+  --space-s: calc(var(--line) / 2);
+  --space-m: var(--line);
+  --space-l: calc(var(--line) * 2);
+  --space-xl: calc(var(--line) * 4);
 
-  --measure: 38rem;
+  --margin-line: clamp(1.5rem, 9vw, 9rem);
+  --measure: 34rem;
+
+  --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.22 0 0 0 0 0.15 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

@@ -2,25 +2,73 @@
   "brand": {
     "name": "muni·muni",
     "tagline": "Handmade leather goods",
-    "logo": { "file": "logo-etsy-icon.jpg" }
+    "logo": {
+      "file": "logo-etsy-icon.jpg"
+    }
   },
   "meta": {
     "title": "muni·muni: handmade leather goods",
     "description": "Handmade leather goods by muni·muni. Shop on Etsy or get in touch."
   },
   "links": {
-    "etsy": { "url": "https://www.etsy.com/shop/MuniMuniLeather", "label": "Shop on Etsy" },
-    "instagram": { "url": "", "label": "Instagram" }
+    "etsy": {
+      "url": "https://www.etsy.com/shop/MuniMuniLeather",
+      "label": "Shop on Etsy"
+    },
+    "instagram": {
+      "url": "",
+      "label": "Instagram"
+    },
+    "contact": {
+      "url": "#write",
+      "label": "Write to me"
+    }
   },
   "about": "[Placeholder About text: replace before launch.] muni·muni is a small studio making leather goods by hand: wallets, card holders, journal covers and other everyday pieces, cut, stitched and finished one at a time.",
   "photos": [
-    { "file": "wallet-rose.jpg", "alt": "Placeholder: dusty rose leather bifold wallet with cream stitching, on linen" },
-    { "file": "cardholder-tan.jpg", "alt": "Placeholder: slim tan leather card holder with stitched edges, on linen" },
-    { "file": "notebook-cover.jpg", "alt": "Placeholder: tan leather journal cover tied with a leather cord" },
-    { "file": "bookmark-cognac.jpg", "alt": "Placeholder: cognac leather bookmark with a tassel, lying on an open book" },
-    { "file": "pen-sleeve.jpg", "alt": "Placeholder: dark brown leather pen sleeve holding two pens" },
-    { "file": "pouch-olive.jpg", "alt": "Placeholder: small olive green leather zip pouch in soft window light" },
-    { "file": "coin-purse-red.jpg", "alt": "Placeholder: burgundy leather coin purse with a brass snap" },
-    { "file": "keyfob-black.jpg", "alt": "Placeholder: black leather key fob with a brass ring on a windowsill" }
-  ]
+    {
+      "file": "wallet-rose.jpg",
+      "alt": "Placeholder: dusty rose leather bifold wallet with cream stitching, on linen"
+    },
+    {
+      "file": "cardholder-tan.jpg",
+      "alt": "Placeholder: slim tan leather card holder with stitched edges, on linen"
+    },
+    {
+      "file": "notebook-cover.jpg",
+      "alt": "Placeholder: tan leather journal cover tied with a leather cord"
+    },
+    {
+      "file": "bookmark-cognac.jpg",
+      "alt": "Placeholder: cognac leather bookmark with a tassel, lying on an open book"
+    },
+    {
+      "file": "pen-sleeve.jpg",
+      "alt": "Placeholder: dark brown leather pen sleeve holding two pens"
+    },
+    {
+      "file": "pouch-olive.jpg",
+      "alt": "Placeholder: small olive green leather zip pouch in soft window light"
+    },
+    {
+      "file": "coin-purse-red.jpg",
+      "alt": "Placeholder: burgundy leather coin purse with a brass snap"
+    },
+    {
+      "file": "keyfob-black.jpg",
+      "alt": "Placeholder: black leather key fob with a brass ring on a windowsill"
+    }
+  ],
+  "contact": {
+    "heading": "Write to me",
+    "intro": "Questions about a piece, a custom order, or just hello. I read every note.",
+    "fields": {
+      "name": "Your name",
+      "email": "Your email",
+      "message": "Your note"
+    },
+    "submit": "Send",
+    "notice": "[Preview: the form is not connected yet.]"
+  },
+  "footer": "Cut, stitched and finished by hand."
 }

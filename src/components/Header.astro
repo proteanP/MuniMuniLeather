@@ -5,17 +5,36 @@ const { brand } = site;
 ---
 
 <header>
-	<img src={url(`brand/${brand.logo.file}`)} alt="" width="96" height="96" />
-	<h1>{brand.name}</h1>
-	<p>{brand.tagline}</p>
+	<img src={url(`brand/${brand.logo.file}`)} alt={brand.name} width="200" height="200" />
+	<h1>{brand.tagline}</h1>
 </header>
 
 <style>
+	header {
+		grid-area: header;
+	}
 	img {
+		display: block;
+		width: 10rem;
+		height: auto;
+		margin-left: -1.25rem;
 		mix-blend-mode: multiply;
 	}
 	h1 {
+		margin: var(--space-s) 0 var(--space-l);
 		font-family: var(--font-display);
-		font-weight: normal;
+		font-weight: 500;
+		font-style: italic;
+		font-size: clamp(3.25rem, 8.5vw, 7.5rem);
+		line-height: 0.92;
+		letter-spacing: -0.02em;
+		max-width: 9ch;
+		animation: settle 1.2s 0.3s ease-out both;
+	}
+	@keyframes settle {
+		from { opacity: 0; transform: translateY(0.15em); }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		h1 { animation: none; }
 	}
 </style>

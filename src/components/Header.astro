@@ -2,20 +2,38 @@
 import site from '../content/site.json';
 import { url } from '../lib/url';
 const { brand } = site;
+// An SVG logo is inlined so its wordmark uses the site's font; any other image is shown as <img>.
+const svgs = import.meta.glob('/public/brand/*.svg', { query: '?raw', import: 'default', eager: true });
+const inlineSvg = svgs[`/public/brand/${brand.logo.file}`] as string | undefined;
 ---
 
 <header>
-	<img src={url(`brand/${brand.logo.file}`)} alt="" width="96" height="96" />
-	<h1>{brand.name}</h1>
-	<p>{brand.tagline}</p>
+	<h1>
+		{inlineSvg ? <Fragment set:html={inlineSvg} /> : <img src={url(`brand/${brand.logo.file}`)} alt={brand.name} />}
+	</h1>
 </header>
 
 <style>
+	h1 {
+		margin: 0;
+		line-height: 0;
+		color: var(--color-ink);
+	}
+	h1 :global(svg),
+	img {
+		display: block;
+		width: min(100%, 64rem, 95svh);
+		height: auto;
+	}
 	img {
 		mix-blend-mode: multiply;
 	}
-	h1 {
-		font-family: var(--font-display);
-		font-weight: normal;
+	@media (prefers-reduced-motion: no-preference) {
+		h1 {
+			animation: settle 1.2s cubic-bezier(.2, .7, .2, 1) both;
+		}
+		@keyframes settle {
+			from { opacity: 0; transform: translateY(0.75rem); }
+		}
 	}
 </style>

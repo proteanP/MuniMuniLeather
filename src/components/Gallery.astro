@@ -4,15 +4,13 @@ import { url } from '../lib/url';
 ---
 
 {site.photos.length > 0 && (
-	<section>
-		<ul>
-			{site.photos.map((photo) => (
-				<li>
-					<img src={url(`photos/${photo.file}`)} alt={photo.alt} width="1000" height="1000" loading="lazy" />
-				</li>
-			))}
-		</ul>
-	</section>
+	<ul>
+		{site.photos.map((photo) => (
+			<li>
+				<img src={url(`photos/${photo.file}`)} alt={photo.alt} width="1000" height="1000" loading="lazy" />
+			</li>
+		))}
+	</ul>
 )}
 
 <style>
@@ -21,14 +19,20 @@ import { url } from '../lib/url';
 		margin: 0;
 		padding: 0;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-		gap: var(--space-m);
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: var(--space-s);
 	}
 	img {
 		display: block;
 		width: 100%;
 		height: auto;
-		aspect-ratio: 1;
+		aspect-ratio: 4 / 5;
 		object-fit: cover;
+	}
+	@media (max-width: 40rem) {
+		ul {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 0.5rem;
+		}
 	}
 </style>

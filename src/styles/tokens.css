@@ -1,17 +1,26 @@
 /* Design tokens: every color, font and spacing value lives here. */
+@import '@fontsource/libre-caslon-text/latin-400.css';
+@import '@fontsource/libre-caslon-text/latin-400-italic.css';
+
 :root {
-  --color-paper: #f4ede1;
-  --color-ink: #2b2420;
-  --color-muted: #6b5d52;
-  --color-accent: #8a4b2a;
+  /* Paper and ink */
+  --color-paper: #efe6d6;
+  --color-ink: #1f1915;
+  --color-muted: #5a4b40;
+  /* Cognac: link hover, focus and the arrow marks */
+  --color-accent: #8a4318;
 
-  --font-body: Georgia, "Times New Roman", serif;
-  --font-display: Georgia, "Times New Roman", serif;
+  /* One face, used at very different sizes */
+  --font-body: "Libre Caslon Text", "Georgia", serif;
+  --font-display: var(--font-body);
 
-  --space-s: 0.5rem;
-  --space-m: 1rem;
-  --space-l: 2rem;
-  --space-xl: 4rem;
+  --space-s: 0.75rem;
+  --space-m: 1.5rem;
+  --space-l: 3rem;
+  --space-xl: 6rem;
 
-  --measure: 38rem;
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+  --measure: 24rem;
+
+  --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.22 0 0 0 0 0.15 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

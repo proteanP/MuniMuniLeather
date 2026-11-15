@@ -2,8 +2,15 @@
 import site from '../content/site.json';
 ---
 
-{site.about && (
-	<section>
-		<p>{site.about}</p>
-	</section>
-)}
+{site.about && <p>{site.about}</p>}
+
+<style>
+	p {
+		grid-area: about;
+		margin: 0;
+		max-width: var(--measure);
+		font-style: italic;
+		font-size: clamp(1.25rem, 1.9vw, 1.625rem);
+		line-height: 1.45;
+	}
+</style>

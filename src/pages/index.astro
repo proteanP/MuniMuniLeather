@@ -3,8 +3,8 @@ import '../styles/tokens.css';
 import site from '../content/site.json';
 import { url } from '../lib/url';
 import Header from '../components/Header.astro';
-import Links from '../components/Links.astro';
 import About from '../components/About.astro';
+import Links from '../components/Links.astro';
 import Gallery from '../components/Gallery.astro';
 ---
 
@@ -20,26 +20,45 @@ import Gallery from '../components/Gallery.astro';
 	<body>
 		<main>
 			<Header />
-			<Links />
-			<About />
+			<div class="intro">
+				<About />
+				<Links />
+			</div>
 			<Gallery />
 		</main>
 	</body>
 </html>
 
 <style is:global>
+	html {
+		background: var(--color-paper);
+	}
 	body {
 		margin: 0;
-		background: var(--color-paper);
 		color: var(--color-ink);
 		font-family: var(--font-body);
+		background-image: var(--paper-grain);
 	}
 	main {
-		max-width: var(--measure);
-		margin: 0 auto;
-		padding: var(--space-xl) var(--space-m);
+		padding: var(--space-l) var(--gutter) var(--gutter);
 	}
-	a {
-		color: var(--color-accent);
+	.intro {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		grid-template-areas: "about links";
+		align-items: end;
+		gap: var(--space-l);
+		margin: var(--space-l) 0 var(--space-xl);
+	}
+	@media (max-width: 40rem) {
+		main {
+			padding-top: var(--space-m);
+		}
+		.intro {
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-areas: "about" "links";
+			gap: var(--space-m);
+			margin: var(--space-m) 0 var(--space-l);
+		}
 	}
 </style>

@@ -6,9 +6,7 @@ import site from '../content/site.json';
 	<p class="label tag">{site.brand.tagline}</p>
 	<h1>{site.headline}</h1>
 	{site.about && <p class="about">{site.about}</p>}
-	<svg class="seam" viewBox="0 0 1200 12" preserveAspectRatio="none" aria-hidden="true">
-		<line x1="0" y1="6" x2="1200" y2="6" />
-	</svg>
+	<div class="seam" aria-hidden="true"></div>
 </section>
 
 <style>
@@ -16,7 +14,7 @@ import site from '../content/site.json';
 		display: grid;
 		grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
 		column-gap: var(--space-l);
-		align-items: end;
+		align-items: last baseline;
 		padding-top: var(--space-l);
 	}
 	.tag {
@@ -35,26 +33,20 @@ import site from '../content/site.json';
 		margin: 0;
 		max-width: var(--measure);
 		color: var(--color-muted);
-		padding-bottom: 0.6rem;
 	}
+	/* A row of saddle stitches, sewn across on load */
 	.seam {
 		grid-column: 1 / -1;
-		width: 100%;
-		height: 12px;
+		height: 2px;
 		margin-top: var(--space-l);
-	}
-	.seam line {
-		stroke: var(--color-ink);
-		stroke-width: 2;
-		stroke-dasharray: 10 6;
+		background: var(--seam);
 		animation: sew 1.6s cubic-bezier(.5, 0, .2, 1) both;
-		clip-path: inset(0 0 0 0);
 	}
 	@keyframes sew {
 		from { clip-path: inset(0 100% 0 0); }
 	}
 	@media (prefers-reduced-motion: reduce) {
-		.seam line { animation: none; }
+		.seam { animation: none; }
 	}
 	@media (max-width: 52rem) {
 		.intro {

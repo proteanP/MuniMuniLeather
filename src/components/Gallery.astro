@@ -66,6 +66,11 @@ const { gallery, photos } = site;
 	li:nth-child(6n + 4) { grid-column: 2 / span 3; }
 	li:nth-child(6n + 5) { grid-column: span 4; margin-top: calc(var(--space-xl) * -0.5); }
 	li:nth-child(6n + 6) { grid-column: span 4; margin-top: var(--space-m); }
+	/* If the list ends one into a new row, the last piece takes the rest of the row */
+	@media (min-width: 52.01rem) {
+		li:nth-child(6n + 2):last-child { grid-column: 7 / span 6; margin-top: var(--space-l); }
+		li:nth-child(6n + 2):last-child img { aspect-ratio: 4 / 3; }
+	}
 	img {
 		display: block;
 		width: 100%;
@@ -102,6 +107,12 @@ const { gallery, photos } = site;
 		li:nth-child(even) {
 			margin-top: var(--space-l);
 		}
-		li:nth-child(3n + 1) img { aspect-ratio: 4 / 5; }
+		li:nth-child(n) img { aspect-ratio: 4 / 5; }
+		.num {
+			display: block;
+		}
+		li p {
+			letter-spacing: 0.04em;
+		}
 	}
 </style>

@@ -1,5 +1,7 @@
 /* Design tokens: every color, font and spacing value lives here. */
 @import '@fontsource/young-serif/latin-400.css';
+@import '@fontsource/newsreader/latin-400.css';
+@import '@fontsource/newsreader/latin-400-italic.css';
 @import '@fontsource/dm-mono/latin-400.css';
 @import '@fontsource/dm-mono/latin-500.css';
 
@@ -15,6 +17,7 @@
   --color-thread: #f3e3c4;
 
   --font-display: "Young Serif", "Georgia", serif;
+  --font-body: "Newsreader", "Georgia", serif;
   --font-label: "DM Mono", "Courier New", monospace;
 
   --space-xs: 0.375rem;
@@ -26,4 +29,6 @@
   --gutter: clamp(1rem, 4vw, 3.5rem);
   --measure: 34rem;
   --stitch: 2px dashed var(--color-thread);
+  /* Stitches on paper: 6px stitch, 4px gap, in cognac */
+  --seam: repeating-linear-gradient(to right, var(--color-accent) 0 6px, transparent 6px 10px);
 }

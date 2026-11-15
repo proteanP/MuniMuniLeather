@@ -22,11 +22,15 @@ import { url } from '../lib/url';
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: var(--space-s);
 	}
-	/* The first photo is the hero: it fills two rows */
+	/* The first photo is the hero: it fills two columns */
 	li:first-child {
-		grid-row: span 2;
+		grid-column: span 2;
+		position: relative;
 	}
+	/* Taken out of flow so the row keeps the height of the other photos */
 	li:first-child img {
+		position: absolute;
+		inset: 0;
 		height: 100%;
 		aspect-ratio: auto;
 	}
@@ -43,9 +47,10 @@ import { url } from '../lib/url';
 			gap: 0.5rem;
 		}
 		li:first-child {
-			grid-row: auto;
+			grid-column: auto;
 		}
 		li:first-child img {
+			position: static;
 			aspect-ratio: 4 / 5;
 		}
 	}
